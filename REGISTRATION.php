@@ -148,13 +148,13 @@
           </div>
 
           <div class="signupContainer white_box" id="signupContainerId">
-            <form
+            <form 
               class="no-border-white-background-bubble max-width-static-minimal bubble-5mm-padding"
               method="post"
               enctype="multipart/form-data"
               id="registration_form"
               name="registration_form"
-              action="/registration/register.php"
+              action=""
             >
               <table id="formTable" class="italic-bold">
                 <tr>
@@ -263,26 +263,7 @@
                       autocapitalize="off"
                     ></textarea>
                   </td>
-                </tr>
-                <!-- <tr>
-                  <td> 
-                    <textarea
-                      class="red"
-                      rows="1"
-                      style="
-                        height: 45px;
-                        padding: 11px 16px 11px 14px !important;
-                      "
-                      name="Experience"
-                      id="Experience"
-                      placeholder="Experience*"
-                      oninput="auto_height(this, 45);"
-                      autocomplete="off"
-                      autocorrect="off"
-                      autocapitalize="off"
-                    ></textarea>
-                  </td>
-                </tr> -->
+                </tr> 
                 <tr>
                   <td> 
                     <textarea
@@ -292,7 +273,7 @@
                         height: 45px;
                         padding: 11px 16px 11px 14px !important;
                       "
-                      name="Mobile"
+                      name="solution_provider_mobile"
                       id="Mobile"
                       placeholder="Mobile*"
                       oninput="auto_height(this, 45);"
@@ -647,21 +628,57 @@
                     ></textarea>
                   </td>
                 </tr>
+              
+
+                <tr id="invoice" style="display: none">
+                   
+                </tr>
                 <tr>
                   <td>
-                  <a href="#" style="text-decoration:none;"><span class="no-border-c2d223-background-bubble to-no-border-black-background bubble-13px-important-padding word-break-all custom-background"  >
+                  <a href="#" onclick="submitFormData()" style="text-decoration:none;"><span class="no-border-c2d223-background-bubble to-no-border-black-background bubble-13px-important-padding word-break-all custom-background"  >
                      <strong>
                         Submit
                         <img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg"> 
                      </strong></span></a>
                   </td>
-                </tr>
-                  
-           
+                </tr> 
               </table>
  
           
             </form>
+
+            <script>
+              function submitFormData() {
+                  // Create an empty FormData object
+                  var formData = new FormData(document.getElementById("registration_form"));
+
+                  console.log(formData)
+
+                  // If you need to debug, print all the form data
+                  for (var pair of formData.entries()) {
+                      console.log(pair[0] + ': ' + pair[1]);
+                  }
+
+                  // Send the data via AJAX (without page reload)
+                  fetch("submit_form.php", {
+                      method: "POST",
+                      body: formData
+                  })
+                  .then(response => response.json()) // Assume server returns JSON
+                  .then(data => {
+                      if (data.success) {
+                          alert("Form submitted successfully!");
+                      } else {
+                          alert("Submission failed.");
+                      }
+                  })
+                  .catch(error => {
+                      console.error("Error:", error);
+                  });
+              }
+
+
+            </script>
           </div>
         </div>
       </div>
@@ -2192,7 +2209,7 @@
         document.getElementById("telephoneTR").style.display = "table-row";
         document.getElementById("cellphoneTR").style.display = "table-row";
         document.getElementById("faxTR").style.display = "table-row";
-        document.getElementById("invoice").value = 1;
+        document.getElementById("invoice").innerHTML = 1;
       } else {
         if (
           !document
@@ -2211,7 +2228,7 @@
         document.getElementById("telephoneTR").style.display = "none";
         document.getElementById("cellphoneTR").style.display = "none";
         document.getElementById("faxTR").style.display = "none";
-        document.getElementById("invoice").value = 0;
+        document.getElementById("invoice").innerHTML = 0;
       }
     }
     function changeByRadio(elm) {
