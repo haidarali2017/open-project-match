@@ -703,7 +703,6 @@
                 </span>
               `;
               document.getElementById('message_data_show').innerHTML = html;
-
             
             }else if (firstname === '') {
               // Show alert if email and confirm email do not match
@@ -829,7 +828,7 @@
 
                 // Log form data for debugging
                 for (var pair of formData.entries()) {
-                    console.log(pair[0] + ': ' + pair[1]);
+                    // console.log(pair[0] + ': ' + pair[1]);
                 }
 
                 // Send the data via AJAX (without page reload)
@@ -845,7 +844,7 @@
                         successMessageDiv.style.display = "block"; 
                         setTimeout(function() {
                             successMessageDiv.style.display = "none"; 
-                            // window.location.href = "http://localhost/open-project-match/LOGIN.php"; 
+                            window.location.href = "http://localhost/open-project-match/LOGIN.php"; 
                         }, 2000); 
                         document.getElementById('myAlertId').style.display = 'none';
                     } else {
