@@ -16,7 +16,12 @@
       <link rel="stylesheet" type="text/css" href="css/global-vision-corporate.css" media="all"> 
    </head>
    <body>
+   <?php 
+      session_start();
+    
+    ?>
       <div>
+      
          <div id="fullscreenId">
             
             <div class="signup bounceInUp animated">
@@ -164,8 +169,57 @@
                <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" style="color:#d6720e;font-style:italic; padding: 11px 10px 11px 8px;" onmouseover="this.style.color='#ffffff';" onmouseout="this.style.color='#d6720e';" data-logname="MENU::hamburger-1-2" onclick="navigateToNewTabWithRootAndAnchorAttributes('OPEN-PROJECTS.php');">OPEN PROJECTS<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowD6720EActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></div>
                <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" style="color:#b11820;font-style:italic; padding: 11px 10px 11px 8px;" onmouseover="this.style.color='#ffffff';" onmouseout="this.style.color='#b11820';" data-logname="MENU::hamburger-1-3" onclick="navigateToNewTabWithRootAndAnchorAttributes('SOLUTIONS-PROVIDERS.php');">SOLUTION PROVIDERS<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowB11820ActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></div>
                <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" style="color:#6ab174;font-style:italic; padding: 11px 10px 11px 8px;" onmouseover="this.style.color='#ffffff';" onmouseout="this.style.color='#6ab174';" data-logname="MENU::hamburger-1-8" onclick="navigateToNewTabWithRootAndAnchorAttributes('REGISTRATION.php');">REGISTRATION<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrow6AB174ActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></div>
-               <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" style="color: rgb(0, 0, 0);font-style: italic;padding: 11px 10px 11px 8px;" onmouseover="this.style.color='#ffffff';" onmouseout="this.style.color='#000000';" onclick="window.open('LOGIN.php');">LOGIN<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowBlackActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></div>
-            </div>
+                  <?php
+                  // Check if the session is already started
+                  if (session_status() === PHP_SESSION_NONE) {
+                     session_start(); // Start the session only if it's not already started
+                  }
+
+                  // Check if the user is logged in
+                  if (isset($_SESSION['id'])) {
+                     // User is logged in, show LOGOUT button
+                     echo '
+                     <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" 
+                           style="color: rgb(0, 0, 0); font-style: italic; padding: 11px 10px 11px 8px;" 
+                           onmouseover="this.style.color=\'#ffffff\';" 
+                           onmouseout="this.style.color=\'#000000\';" 
+                           onclick="sessionDestroy()">LOGOUT
+                        <img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowBlackActiveBorderlessSVG.svg">
+                        <img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG">
+                     </div>';
+                  } else {
+                     // User is not logged in, show LOGIN button
+                      // User is not logged in, show LOGIN button
+               echo '
+               <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" 
+                     style="color: rgb(0, 0, 0); font-style: italic; padding: 11px 10px 11px 8px;" 
+                     onmouseover="this.style.color=\'#ffffff\';" 
+                     onmouseout="this.style.color=\'#000000\';" 
+                     onclick="window.open(\'LOGIN.php\');">LOGIN
+                  <img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowBlackActiveBorderlessSVG.svg">
+                  <img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG">
+               </div>';
+                 
+                  }
+                  ?>
+               <script>
+               function sessionDestroy() {
+                  var xhr = new XMLHttpRequest();
+                  xhr.open("POST", "hello.php", true);
+                  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                  
+                  xhr.onload = function() {
+                     if (xhr.status === 200) {
+                           // Update the response message
+                           document.getElementById("responseMessage").innerText = xhr.responseText;
+                     }
+                  };
+
+                  xhr.send();
+               }
+               </script>
+
+               </div>
          </div>
       </div>
       <script type="text/javascript">

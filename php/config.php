@@ -3,7 +3,7 @@
 $localhost="localhost";
 $username="root";
 $password="";
-$database="open-project-match";
+$database="project-match-design";
 
 $conn=mysqli_connect($localhost,$username,$password,$database);
 

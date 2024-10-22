@@ -26,11 +26,67 @@
       <link rel="stylesheet" type="text/css" href="https://global-vision.world/css/global-vision-corporate.css" media="all">
       <link rel="stylesheet" type="text/css" href="https://global-vision.world/css/server-additional.css" media="all">
       <script type="text/javascript" src="https://global-vision.world/js/server-default.js"></script>
+
+
+      <!-- Login process by SR -->
+      <?php
+         // Start the session
+         session_start();
+
+         // Include the database configuration file
+         include 'php/config.php';
+
+         // Initialize the error message
+         $error = '';
+
+         // Check if form is submitted
+         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Sanitize and fetch form inputs
+            $email = trim($_POST['email']);
+            $password = trim($_POST['password']);
+            
+            if (!empty($email) && !empty($password)) {
+               // Prepare the SQL statement to prevent SQL injection
+               $stmt = $conn->prepare("SELECT * FROM `user` WHERE `email` = ? AND `password` = ?");
+               $stmt->bind_param("ss", $email, $password); // Bind email and password
+
+               // Execute the query
+               $stmt->execute();
+               $result = $stmt->get_result();
+
+               // Check if email and password are correct
+               if ($result->num_rows > 0) {
+                     $data = $result->fetch_assoc();
+                     // Store user info in session
+                     $_SESSION['email'] = $data['email'];
+                     $_SESSION['id'] = $data['id'];
+
+                     // Redirect to the target page after successful login
+                     header('Location: OPEN-PROJECTS.php');
+                     exit();
+               } else {
+                     // Invalid login
+                     $error = "Invalid email or password.";
+               }
+
+               // Close the statement
+               $stmt->close();
+            } else {
+               $error = "Please fill in all fields.";
+            }
+         }
+      ?>
+
+      <!-- Display error message -->
+      <?php if (!empty($error)): ?>
+         <div class="error"><?php echo $error; ?></div>
+      <?php endif; ?>
+
    </head>
+   
    <body>
       <div>
-         <div id="fullscreenId">
-             
+         <div id="fullscreenId">             
             <div class="signup bounceInUp animated">
                <div class="columnsTitle" style="text-align:center;padding-top:20px">
                   <span class="white-border-white-background-bubble bubble-padding italic-bold justify" style="color:#15BB39;text-transform:capitalize;">LOGIN</span>
@@ -40,54 +96,52 @@
                      <tbody>
                         <tr>
                            <td>
-                              <a href="https://global-vision.world">
-                              </a>
-                     </tbody>
-                     </td></tr>
+                                    <a href="https://global-vision.world">
+                                    </a>
+                           </tbody>
+                           </td>
+                        </tr>
                   </table>
                </div>
                <div class="signupContainer white_box" id="signupContainerId"> 
+   
                   <form class="no-border-white-background-bubble max-width-static-minimal bubble-5mm-padding" method="post" id="registration_form" name="registration_form" action="">
                      <input type="hidden" name="sid" value="jv4td5qq8n57n5lbscr5f09c7q">
                      <table class="italic-bold">
-                     
                         <tr>
-                           <td><span class="no-border-3e9721-background-bubble bubble-4mm-important-padding word-break-all"><strong>Please join<br>Find your suitable Projects.</strong></span></td>
+                              <td><span class="no-border-3e9721-background-bubble bubble-4mm-important-padding word-break-all"><strong>Please join<br>Find your suitable Projects.</strong></span></td>
                         </tr>
                         <tr>
-                           <td>
-                             
-                              <textarea class="red" rows="1" name="email" id="email" placeholder="Email*" oninput="auto_height(this, 45);" onClick="emailOnClick(event);" autocomplete="off" autocorrect="off" autocapitalize="off" style="height:45px;padding: 11px 16px 11px 14px !important;"></textarea>
-                           </td>
+                              <td>
+                                 <input type="email" class="red" name="email" id="email" placeholder="Email*" required>
+                              </td>
                         </tr>
                         <tr>
-                           <td class="password"><input class="red" style="height:45px !important;" type="password" autocomplete="off" autocorrect="off" autocapitalize="off" name="password" id="password" placeholder="Password*" onClick="passwordOnClick(event);">
-                              <img style="opacity:0.5;cursor:pointer;position:relative;right:40px;vertical-align:middle;" onclick="visibilityOnOff(this);" src="https://global-vision.world/login/img/visibility.svg">
-                           </td>
-                        </tr>
-                        <tr id="txtHint" style="display:none;"></tr>
-                        <tr>
-                           <td onclick="simpleformhash(document.getElementById('registration_form'), document.getElementById('email'), document.getElementById('password'));">
-                         
-                              <span class="color-d3d3d3-border-transparent-background-bubble title-style-padding-re-style bubble-4mm-important-padding word-break-all to-black-border-black-background">Log in<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowBlackActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></span>
-                           </td>
-                        </tr>
-                 
-                        <tr>
-                           <td onClick="window.open('PASSWORD.php', '_self');"><span class="color-border-c2d223-background-bubble title-style-padding-re-style bubble-4mm-important-padding word-break-all to-black-border-black-background"><strong>Forgot your password?</strong><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></span></td>
+                              <td class="password"><input class="red" style="height:45px !important;" type="password" name="password" id="password" placeholder="Password*" required>
+                              </td>
                         </tr>
                         <tr>
-                           <td onClick="navigateToNewTabWithRootAndAnchorSubpageAttributes('REGISTRATION.php', 'change', 'shop');">
-                        
-                              <span class="color-d3d3d3-border-transparent-background-bubble title-style-padding-re-style bubble-4mm-important-padding word-break-all to-black-border-black-background">Register<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowBlackActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></span>
-                           </td>
+                              <td>
+                                 <button type="submit" class="color-d3d3d3-border-transparent-background-bubble title-style-padding-re-style bubble-4mm-important-padding word-break-all to-black-border-black-background custom-login-button">
+                                    Log in
+                                 </button>
+                              </td>
                         </tr>
-            
+                        <tr>
+                              <td onClick="window.open('PASSWORD.php', '_self');"><span class="color-border-c2d223-background-bubble title-style-padding-re-style bubble-4mm-important-padding word-break-all to-black-border-black-background"><strong>Forgot your password?</strong></span></td>
+                        </tr>
+                        <tr>
+                              <td onClick="navigateToNewTabWithRootAndAnchorSubpageAttributes('REGISTRATION.php', 'change', 'shop');">
+                                 <span class="color-d3d3d3-border-transparent-background-bubble title-style-padding-re-style bubble-4mm-important-padding word-break-all to-black-border-black-background">Register<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowBlackActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></span>
+                              </td>
+                        </tr>
                      </table>
                   </form>
+
                </div>
             </div>
          </div>
+
          <script type="text/javascript" src="js/signup.js"></script>
          <style>
             .corporateWhiteBubbleBlackLink, .corporateWhiteBubbleTransparentLink {
@@ -111,9 +165,14 @@
             </div>
          </div>
          <script type="text/javascript" src="https://global-vision.world/js/cookie.js"></script>
-   
+
     
          <style>
+            .custom-login-button{
+               font-size: 16px;
+               font-weight: bold;
+               font-style: italic;
+            }
             * {
             -webkit-transition:none !important;
             -moz-transition:none !important;
@@ -889,7 +948,9 @@
          }
       </script>
       <script type="text/javascript" src="https://global-vision.world/js/ajax-save-log.js"></script>       
+
    </body>
+
    <script type="text/javascript">
       function auto_height(elem, size) {
           elem.style.height = size + "px";

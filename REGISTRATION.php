@@ -19,12 +19,7 @@
       type="image/x-icon"
     />
     <link href="css/animate.css" rel="stylesheet" type="text/css" />
-    <link href="css/root.css" rel="stylesheet" type="text/css" />
-    <link href="css/cookie.css" rel="stylesheet" type="text/css" />
-    <link href="styles/main.css" rel="stylesheet" />
-    <script type="text/javascript" src="js/vh-check.js"></script>
-    <script type="text/JavaScript" src="js/sha512.js"></script>
-    <script type="text/JavaScript" src="js/forms.js"></script>
+    <link href="css/root.css" rel="stylesheet" type="text/css" /> 
 
     <link
       href="https://global-vision.world/css/server_ONLY_FOR_LOGIN_07.15.2020.css"
@@ -60,53 +55,7 @@
       src="https://global-vision.world/js/server-default.js"
     ></script>
 
-    <script src="https://www.paypal.com/sdk/js?client-id=ASiTxcxJDwNbpc70kYBqHGubQNofFKOKphK5tFCUHOhLldtfSgzsakCCpTYmXzp0ZKZcbaPQ5046KuWS&currency=USD"></script>
-    <script type="text/javascript">
-      var calendarDaySift = 6;
-      var calculatedValue = 0.01;
-      var perDay = false;
-      var currentCalendarStart = "";
-      var selfStudyProduct = false;
-      var registrationDayAmount = 1;
-
-      var selectedStartingDay;
-
-      var currentYear;
-      var calendarYear;
-      var currentMonth;
-      var calendarMonth;
-      var currentDay;
-      var calendarDay;
-      var currentLastDay;
-      var calendarLastDay;
-      var calendarStart;
-      var currentRemainingDayOfCurrentMonth;
-      var currentStartDate;
-      var calenderStartDate;
-
-      var month = new Array();
-      month[0] = "January";
-      month[1] = "February";
-      month[2] = "March";
-      month[3] = "April";
-      month[4] = "May";
-      month[5] = "June";
-      month[6] = "July";
-      month[7] = "August";
-      month[8] = "September";
-      month[9] = "October";
-      month[10] = "November";
-      month[11] = "December";
-
-      var day = new Array();
-      day[0] = "Sun";
-      day[1] = "Mon";
-      day[2] = "Tue";
-      day[3] = "Wed";
-      day[4] = "Thu";
-      day[5] = "Fri";
-      day[6] = "Sat";
-    </script>
+    
     <style>
       .white_box form .table-lifetime {
         padding: 0mm 0mm 0mm 0mm;
@@ -119,22 +68,13 @@
     </style>
   </head>
   <body>
+    <div id="successMessage" style="display:none; position: fixed; top: 20px; right: 20px; background-color: #dff0d8; color: #3c763d; padding: 15px; border-radius: 5px; z-index: 1000;">
+      Registration successful!
+    </div>
+
     <div>
       <div id="fullscreenId">
-        <div id="fullscreen-bg">
-          <video
-            muted
-            autoplay
-            loop
-            playsinline
-            poster="img/background.png"
-            id="fullscreen-bg-video"
-          >
-            <source src="_video/background.mp4" type="video/mp4" />
-            <source src="_video/background.ogv" type="video/ogg" />
-            <source src="_video/background.mp4" type="video/webm" />
-          </video>
-        </div>
+         
 
         <div class="signup bounceInUp animated">
           <div
@@ -146,7 +86,7 @@
               style="color: #15BB39; text-transform: capitalize"
               >REGISTRATION<span>
           </div>
-
+       
           <div class="signupContainer white_box" id="signupContainerId">
             <form 
               class="no-border-white-background-bubble max-width-static-minimal bubble-5mm-padding"
@@ -198,8 +138,7 @@
                       "
                       rows="1"
                       name="confirmemail"
-                      id="confirmemail"
-                      onClick="confirmEmailClick(event);"
+                      id="confirmemail"                      
                       placeholder="Confirm email*"
                       oninput="auto_height(this, 45);"
                       autocomplete="off"
@@ -265,23 +204,43 @@
                   </td>
                 </tr> 
                 <tr>
-                  <td> 
-                    <textarea
-                      class="red"
-                      rows="1"
-                      style="
+                 <td> 
+ 
+                    <link
+                      rel="stylesheet"
+                      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+                    />
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+              
+                  
+                  <div>                   
+                        <input id="mobile" type="tel" name="solution_provider_mobile" />
+                  </div>
+                  <style> 
+                      #mobile {
+                        padding-top: 6px;
+                        padding-bottom: 6px;
+                        border: 2px solid #ccc;
+                        border-radius: 20px;
                         height: 45px;
-                        padding: 11px 16px 11px 14px !important;
-                      "
-                      name="solution_provider_mobile"
-                      id="Mobile"
-                      placeholder="Mobile*"
-                      oninput="auto_height(this, 45);"
-                      autocomplete="off"
-                      autocorrect="off"
-                      autocapitalize="off"
-                    ></textarea>
-                  </td>
+ 
+                      } 
+                      .myAlert { 
+                          top: 30%; 
+                      }
+                  </style> 
+                  <script> 
+                 
+
+                    const phoneInputField = document.querySelector("#mobile");
+                      const phoneInput = window.intlTelInput(phoneInputField, {
+                        utilsScript:
+                          "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+                      });
+  
+                  </script>
+
+                 </td>                
                 </tr>
                 <tr>
                   <td>
@@ -313,7 +272,7 @@
                                 class="onoffswitch-checkbox"
                                 id="checkboxInvoice"
                                 type="checkbox"
-                                name="checkboxInvoice"
+                                name="is_project_uploader"
                                 onclick="needInvoice(this);"
                               />
                               <label
@@ -628,61 +587,282 @@
                     ></textarea>
                   </td>
                 </tr>
-              
 
-                <tr id="invoice" style="display: none">
+                   <tr id="invoice" style="display: none">
                    
                 </tr>
                 <tr>
-                  <td>
-                  <a href="#" onclick="submitFormData()" style="text-decoration:none;"><span class="no-border-c2d223-background-bubble to-no-border-black-background bubble-13px-important-padding word-break-all custom-background"  >
-                     <strong>
-                        Submit
-                        <img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg"> 
-                     </strong></span></a>
+                  <td> 
+                    <a href="#" onclick="validateAndSubmitForm(event);emailEcheckExit(event);" style="text-decoration:none;">
+                      <span class="no-border-c2d223-background-bubble to-no-border-black-background bubble-13px-important-padding word-break-all custom-background">
+                        <strong>
+                          Submit
+                          <img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg"> 
+                        </strong>
+                      </span>
+                    </a>
                   </td>
-                </tr> 
+                </tr>
               </table>
  
           
             </form>
-
+            <style>
+              .myAlert { 
+                top: 25%; 
+            }
+            </style>
+               <div id="myAlertId" style="display: none;"> <!-- Initially hidden -->
+                  <div class="myAlert fadeInUp animated">
+                      <div class="myAlertContainer white_box">
+                          <form class="no-border-white-background-bubble max-width-static-minimal bubble-5mm-padding">
+                              <table class="italic-bold">
+                                  <tbody>
+                                      <tr>
+                                          <td id="message_data_show" style="width:205px;">
+                                             
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <span id="showMyAlertOkButton" class="custom-sub-menu-top-drop-down-simple-title-padding-div" onclick="removeMyAlert();">OK
+                                                  <img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowBlackActiveBorderlessSVG.svg">
+                                                  <img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG">
+                                              </span>
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </form>
+                      </div>
+                  </div>
+          </div>
             <script>
-              function submitFormData() {
-                  // Create an empty FormData object
-                  var formData = new FormData(document.getElementById("registration_form"));
 
-                  console.log(formData)
+          function validateEmail(email) {
+            // Basic email validation regex
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailPattern.test(email);
+          }
 
-                  // If you need to debug, print all the form data
-                  for (var pair of formData.entries()) {
-                      console.log(pair[0] + ': ' + pair[1]);
+          function validateAndSubmitForm(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const email = document.getElementById('email').value.trim();
+            const confirmemail = document.getElementById('confirmemail').value.trim(); 
+            const firstname = document.getElementById('firstname').value.trim();
+            const surname = document.getElementById('surname').value.trim();
+
+            if (email === '') {
+              // Show alert if email is empty
+              document.getElementById('myAlertId').style.display = 'block';
+              let html = `
+                <span class="no-border-3e9721-background-bubble bubble-4mm-important-padding">
+                  <strong>All mandatory fields <br> must be filled.</strong>
+                </span>
+              `;
+              document.getElementById('message_data_show').innerHTML = html; 
+              
+
+            }else if (!validateEmail(email)) {
+              // Show alert if email is not valid
+              document.getElementById('myAlertId').style.display = 'block';
+              let html = `
+                <span class="no-border-3e9721-background-bubble bubble-4mm-important-padding">
+                  <strong>Email not valid.</strong>
+                </span>
+              `;
+              document.getElementById('message_data_show').innerHTML = html;
+
+            }else if (confirmemail === '') {
+              // Show alert if email and confirm email do not match
+              document.getElementById('myAlertId').style.display = 'block';
+              let html = `
+                <span class="no-border-3e9721-background-bubble bubble-4mm-important-padding">
+                  <strong>All mandatory fields <br> must be filled.</strong>
+                </span>
+              `;
+              document.getElementById('message_data_show').innerHTML = html;
+
+            }else if (!validateEmail(confirmemail)) {
+              // Show alert if email is not valid
+              document.getElementById('myAlertId').style.display = 'block';
+              let html = `
+                <span class="no-border-3e9721-background-bubble bubble-4mm-important-padding">
+                  <strong>Email not valid.</strong>
+                </span>
+              `;
+              document.getElementById('message_data_show').innerHTML = html;
+
+            }else if (email !== confirmemail) {
+              // Show alert if email and confirm email do not match
+              document.getElementById('myAlertId').style.display = 'block';
+              let html = `
+                <span class="no-border-3e9721-background-bubble bubble-4mm-important-padding">
+                  <strong>Email check mismatched.</strong>
+                </span>
+              `;
+              document.getElementById('message_data_show').innerHTML = html;
+
+            
+            }else if (firstname === '') {
+              // Show alert if email and confirm email do not match
+              document.getElementById('myAlertId').style.display = 'block';
+              let html = `
+                <span class="no-border-3e9721-background-bubble bubble-4mm-important-padding">
+                  <strong>All mandatory fields <br> must be filled.</strong>
+                </span>
+              `;
+              document.getElementById('message_data_show').innerHTML = html;
+
+            }else if (surname  === '') {
+              // Show alert if email and confirm email do not match
+              document.getElementById('myAlertId').style.display = 'block';
+              let html = `
+                <span class="no-border-3e9721-background-bubble bubble-4mm-important-padding">
+                  <strong>All mandatory fields <br> must be filled.</strong>
+                </span>
+              `;
+              document.getElementById('message_data_show').innerHTML = html;
+
+            }else {
+              // Email is valid and matches, submit form (replace this with actual form submission logic)
+              submitFormData();
+            }
+          }
+
+          function emailEcheckExit(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const email = document.getElementById('email').value.trim();
+
+            if (email === '') {
+              // Show alert if email is empty
+              document.getElementById('myAlertId').style.display = 'block';
+              let html = `
+                <span class="no-border-3e9721-background-bubble bubble-4mm-important-padding">
+                  <strong>All mandatory fields <br> must be filled.</strong>
+                </span>
+              `;
+              document.getElementById('message_data_show').innerHTML = html; 
+              return false;
+            }
+
+            // Send an AJAX request to check if the email exists
+            const formData = new FormData();
+            formData.append('email', email);
+
+            fetch('php/check_email.php', {
+              method: 'POST',
+              body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+              document.getElementById('myAlertId').style.display = 'block';
+              
+              if (data.status === 'error') {
+                let html = `
+                <span class="no-border-3e9721-background-bubble bubble-4mm-important-padding">
+                  <strong>${data.message}</strong>
+                </span>
+              `;
+                document.getElementById('message_data_show').innerHTML = html;
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+
+            return false;
+          }
+ 
+
+            // Function to hide the alert
+            function removeMyAlert() {
+              document.getElementById('myAlertId').style.display = 'none';
+            }
+
+              // genarate random password by SR
+              function generateRandomPassword(length = 12) {
+                  const lowerChars = 'abcdefghijklmnopqrstuvwxyz';
+                  const upperChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                  const numbers = '0123456789';
+                  const specialChars = '!@#$%^&*()_+{}[]<>?,.';
+                  
+                  const allChars = lowerChars + upperChars + numbers + specialChars;
+                  let password = '';
+
+                  // Ensure at least one character from each set is included
+                  password += lowerChars[Math.floor(Math.random() * lowerChars.length)];
+                  password += upperChars[Math.floor(Math.random() * upperChars.length)];
+                  password += numbers[Math.floor(Math.random() * numbers.length)];
+                  password += specialChars[Math.floor(Math.random() * specialChars.length)];
+
+                  // Fill the rest of the password length with random characters
+                  for (let i = 4; i < length; i++) {
+                      password += allChars[Math.floor(Math.random() * allChars.length)];
                   }
 
-                  // Send the data via AJAX (without page reload)
-                  fetch("submit_form.php", {
-                      method: "POST",
-                      body: formData
-                  })
-                  .then(response => response.json()) // Assume server returns JSON
-                  .then(data => {
-                      if (data.success) {
-                          alert("Form submitted successfully!");
-                      } else {
-                          alert("Submission failed.");
-                      }
-                  })
-                  .catch(error => {
-                      console.error("Error:", error);
-                  });
+                  // Shuffle the password to randomize its characters
+                  return password.split('').sort(() => 0.5 - Math.random()).join('');
+              }
+              function popupAlertOpen() {
+                  document.getElementById('myAlertId').style.display = 'block';
+              } 
+              function submitFormData() 
+              {
+                // Create an empty FormData object
+                var formData = new FormData(document.getElementById("registration_form"));
+
+                // Generate a random password
+                var randomPassword = generateRandomPassword(12);
+                formData.append('password', randomPassword); // Append the random password to the form data
+
+                // Check if the checkbox is checked
+                var isProjectUploader = document.getElementById("checkboxInvoice").checked;
+
+                // Set userType based on the checkbox state
+                var userType = isProjectUploader ? 'open project' : 'solution provider';
+                
+                // Append the userType to the FormData object
+                formData.append('userType', userType);
+
+                // Log form data for debugging
+                for (var pair of formData.entries()) {
+                    console.log(pair[0] + ': ' + pair[1]);
+                }
+
+                // Send the data via AJAX (without page reload)
+                fetch("php/submit_form.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Display success message
+                        var successMessageDiv = document.getElementById("successMessage");
+                        successMessageDiv.style.display = "block"; 
+                        setTimeout(function() {
+                            successMessageDiv.style.display = "none"; 
+                            // window.location.href = "http://localhost/open-project-match/LOGIN.php"; 
+                        }, 2000); 
+                        document.getElementById('myAlertId').style.display = 'none';
+                    } else {
+                        alert("Submission failed: " + data.message); 
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
               }
 
-
             </script>
+
+
           </div>
         </div>
-      </div>
-      <script type="text/javascript" src="js/signup.js"></script>
+      </div> 
 
       <div
         id="calendar-container"
@@ -1833,10 +2013,7 @@
           });
       </script>
     </div>
-    <script
-      type="text/javascript"
-      src="https://global-vision.world/js/ajax-save-log.js"
-    ></script>
+ 
   </body>
   <script type="text/javascript">
     function auto_height(elem, size) {
@@ -1847,103 +2024,8 @@
       auto_height(document.getElementById("error_msg"), 45);
     }
   </script>
-  <script type="text/javascript">
-    function testDrivenRegistration() {
-      showMyProgress("Transaction completed.\n\nOrder ID: 1234567890");
-      document.getElementById("paid-amount").value =
-        registrationDayAmount *
-        productPrice *
-        parseInt(document.getElementById("registration_form").amount.value);
-      document.getElementById("product-code").value = productCode;
-      document.getElementById("product-title").value = productTitle;
-      document.getElementById("product-path").value = productPath;
-      document.getElementById("order-id").value = "1234567890";
-      var registrationForm = document.getElementById("registration_form");
-      regformhash(
-        registrationForm,
-        registrationForm.firstname,
-        registrationForm.surname,
-        registrationForm.street,
-        registrationForm.housenumber,
-        registrationForm.zipcode,
-        registrationForm.city,
-        registrationForm.email,
-        registrationForm.confirmemail,
-        registrationForm.amount,
-        registrationForm.calendarstart
-      );
-    }
-  </script>
-  <script>
-    paypal
-      .Buttons({
-        style: {
-          color: "gold",
-          shape: "pill",
-          height: 45,
-        },
-        createOrder: function (data, actions) {
-          return actions.order.create({
-            purchase_units: [
-              {
-                amount: {
-                  value: calculatedValue,  
-                },
-              },
-            ],
-          }); 
-        },
-        onShippingChange: function (data, actions) {
-          return actions.resolve();
-        },
-        onApprove: function (data, actions) { 
-          return actions.order.capture().then(function (details) { 
-            showMyAlert(
-              "Transaction completed by " +
-                details.payer.name.given_name +
-                " " +
-                details.payer.name.surname +
-                "\n\nOrder ID: " +
-                details.id
-            );
-            document.getElementById("paid-amount").value =
-              productPrice * parseInt(document.getElementById("amount").value) -
-              productPrice *
-                parseInt(document.getElementById("amount").value) *
-                (productDiscount / 100);
-            document.getElementById("product-code").value = productCode;
-            document.getElementById("product-title").value = productTitle;
-            document.getElementById("product-path").value = productPath;
-            document.getElementById("order-id").value = details.id;
-            var registrationForm = document.getElementById("registration_form");
-            console.log(
-              "REGISTRATION FORM: " +
-                registrationForm +
-                " productPrice: " +
-                productPrice +
-                " amount: " +
-                parseInt(
-                  document.getElementById("registration_form").amount.value
-                )
-            );
-            regformhash(
-              registrationForm,
-              registrationForm.firstname,
-              registrationForm.surname,
-              registrationForm.street,
-              registrationForm.housenumber,
-              registrationForm.zipcode,
-              registrationForm.city,
-              registrationForm.email,
-              registrationForm.confirmemail,
-              registrationForm.amount,
-              registrationForm.calendarstart
-            );
-          });
-        },
-      })
-      .render("#paypal-button-container");
-  </script>
+ 
+ 
   <!-- MUST MOVE JS FILE -->
   <script type="text/javascript">
     document
@@ -1997,108 +2079,12 @@
         elm.value = size;
       }
     }
+ 
 
-    function addNewImputsInContainerTable() {
-      var elm = document.getElementById("amount");
-      if (!elm.value) {
-        elm.value = 1;
-      }
-      var size = parseInt(elm.value) + 1;
-      elm.value = size;
-      addNewImputsItem(size);
-    }
+ 
+ 
 
-    function addNewImputsItem(size) { 
-      var tableRef = document.getElementById("formTable");
-      var totalNumbeOfRows = tableRef.rows.length; 
-      var newRow;
-      if (selfStudyProduct && perDay) {
-        newRow = tableRef.insertRow(totalNumbeOfRows - 8);
-      } else if (selfStudyProduct && !perDay) {
-        newRow = tableRef.insertRow(totalNumbeOfRows - 8);
-      } else {
-        newRow = tableRef.insertRow(totalNumbeOfRows - 7);
-      }
-      newRow.innerHTML +=
-        '<td><table class="table-additional bubble-5mm-padding"><tr><td><textarea class="red" rows="1" style="height: 45px; padding: 11px 16px 11px 14px !important;" name="firstname-' +
-        size +
-        '" id="firstname-' +
-        size +
-        '" placeholder="First name*" oninput="auto_height(this, 45);" autocomplete="off" autocorrect="off" autocapitalize="off" ></textarea></td></tr><tr><td><textarea class="red" rows="1" style="height: 45px; padding: 11px 16px 11px 14px !important;" name="surname-' +
-        size +
-        '" id="surname-' +
-        size +
-        '" placeholder="Last name*" oninput="auto_height(this, 45);" autocomplete="off" autocorrect="off" autocapitalize="off" ></textarea></td></tr><tr><td><textarea class="red" rows="1" style="height: 45px; padding: 11px 16px 11px 14px !important;" name="email-' +
-        size +
-        '" id="email-' +
-        size +
-        '" placeholder="Email*" oninput="auto_height(this, 45);" autocomplete="off" autocorrect="off" autocapitalize="off" ></textarea></td></tr></table></td>';
-    }
-
-    function addNewImputs() {
-      var trCount =
-        document
-          .getElementById("participantsContainer")
-          .getElementsByTagName("tr").length / 3;
-      var firstnameArray = new Array(trCount);
-      var surnameArray = new Array(trCount);
-      var emailArray = new Array(trCount);
-      for (var i = 0; i < trCount; i++) {
-        firstnameArray[i] = document.getElementById(
-          "firstname-" + (i + 2)
-        ).value;
-        surnameArray[i] = document.getElementById("surname-" + (i + 2)).value;
-        emailArray[i] = document.getElementById("email-" + (i + 2)).value;
-      }
-      var root = document.getElementById("participantsContainer");
-      var elm = document.getElementById("amount");
-      if (!elm.value) {
-        elm.value = 1;
-      }
-      var size = parseInt(elm.value) + 1;
-      elm.value = size;
-     
-      root.innerHTML +=
-        '<tr><td><table class="table-additional bubble-5mm-padding"><tr><td><input class="red" style="width:100%;" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" name="firstname-' +
-        size +
-        '" id="firstname-' +
-        size +
-        '" placeholder="First name*"></td></tr><tr><td><input class="red" style="width:100%;" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" name="surname-' +
-        size +
-        '" id="surname-' +
-        size +
-        '" placeholder="Last name*"></td></tr><tr><td><input class="red" style="width:100%;" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" name="email-' +
-        size +
-        '" id="email-' +
-        size +
-        '" placeholder="Email*"></td></tr></table></td></tr>';
-      for (var i = 0; i < trCount; i++) {
-        if (document.getElementById("firstname-" + (i + 2))) {
-          document.getElementById("firstname-" + (i + 2)).value =
-            firstnameArray[i];
-          document.getElementById("surname-" + (i + 2)).value = surnameArray[i];
-          document.getElementById("email-" + (i + 2)).value = emailArray[i];
-        } else {
-          break;
-        }
-      }
-      document
-        .getElementById("paypal-integration")
-        .setAttribute("onClick", "mouseOnClickCheck();");
-      document.getElementById("paypal-button-container").style.pointerEvents =
-        "none";
-      resizeContainer();
-    }
-
-    function changeNumberOfDays(elm) {
-      var elm = document.getElementById("paidamountbyhand");
-      if (elm.value < 0) {
-        elm.value *= -1;
-      }
-      if (elm.value && elm.value < 1) {
-        elm.value = 1;
-      }
-    }
+ 
 
     function focusAmount(elm) {}
 
@@ -2128,67 +2114,7 @@
       resizeContainer();
     }
 
-    function changeAmount(elm) {
-    
-      var trCount =
-        document
-          .getElementById("participantsContainer")
-          .getElementsByTagName("tr").length / 3;
-      var firstnameArray = new Array(trCount);
-      var surnameArray = new Array(trCount);
-      var emailArray = new Array(trCount);
-      for (var i = 0; i < trCount; i++) {
-        firstnameArray[i] = document.getElementById(
-          "firstname-" + (i + 2)
-        ).value;
-        surnameArray[i] = document.getElementById("surname-" + (i + 2)).value;
-        emailArray[i] = document.getElementById("email-" + (i + 2)).value;
-      }
-      var size = parseInt(elm.value);
-      var root = document.getElementById("participantsContainer");
-      if (size < 1) {
-        while (root.hasChildNodes()) {
-          root.removeChild(root.firstChild);
-        }
-        elm.value = 1;
-      } else if (size == 1) {
-        while (root.hasChildNodes()) {
-          root.removeChild(root.firstChild);
-        }
-      } else if (size > 1) {
-        while (root.hasChildNodes()) {
-          root.removeChild(root.firstChild);
-        }
-        root.innerHTML += "";
-        for (var i = 2; i <= size; i++) {
-          root.innerHTML +=
-            '<table id="participantsContainer" class="table-additional bubble-5mm-padding"><tr><td><input class="red" style="width:100%;" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" name="firstname-' +
-            i +
-            '" id="firstname-' +
-            i +
-            '" placeholder="First name*"></td></tr><tr><td><input class="red" style="width:100%;" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" name="surname-' +
-            i +
-            '" id="surname-' +
-            i +
-            '" placeholder="Last name*"></td></tr><tr><td><input class="red" style="width:100%;" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" name="email-' +
-            i +
-            '" id="email-' +
-            i +
-            '" placeholder="Email*"></td></tr></table>';
-        }
-      }
-      for (var i = 0; i < trCount; i++) {
-        if (document.getElementById("firstname-" + (i + 2))) {
-          document.getElementById("firstname-" + (i + 2)).value =
-            firstnameArray[i];
-          document.getElementById("surname-" + (i + 2)).value = surnameArray[i];
-          document.getElementById("email-" + (i + 2)).value = emailArray[i];
-        } else {
-          break;
-        }
-      }
-      resizeContainer();
-    }
+ 
 
     function needInvoice(elm) {
       if (elm.checked) {
@@ -2302,854 +2228,12 @@
       }
       videoAdjust();
     }
-    function calendarInner(
-      currentYearByParam,
-      currentMonthByParam,
-      currentDayByParam,
-      currentLastDayByParam,
-      currentStartDateByParam,
-      calendarDaySiftByParameter
-    ) {
-      calendarYear = currentYearByParam;
-      calendarMonth = currentMonthByParam;
-      calendarDay = currentDayByParam;
-      calendarLastDay = currentLastDayByParam;
-      calenderStartDate = currentStartDateByParam;
-      var tempCalendarDay = currentMonth == calendarMonth ? calendarDay : 0;
-      if (calendarStart.length < 3) {
-        console.log(
-          "%cCALENDAR INNER 1st: " + calendarDay + " :: " + calendarDaySift,
-          "background: #d8b481; color: #1f630a"
-        );
-        // DEBUG CHECKING THE CALENDAR
-        console.log(
-          "1st: CURR YEAR: " +
-            currentYear +
-            " && CURR MONTH: " +
-            currentMonth +
-            " && CURR DAY: " +
-            currentDay +
-            " && CURR LAST: " +
-            currentLastDay +
-            " && CURR REMAINING: " +
-            currentRemainingDayOfCurrentMonth
-        );
-        var monthContainer = document.getElementById(
-          "calendar-month-container"
-        );
-        var innerTd = month[calendarMonth] + " " + calendarYear;
-        monthContainer.innerHTML = innerTd;
-        var dayContainer = document.getElementById("calendar-day-container");
-        var incrementedDay = 1;
-        var heightIncrement = 1;
-        var innerTable = "";
-
-        for (var i = 0; i < 6; i++) {
-          innerTable += "<tr>";
-          for (var j = 0; j < 7; j++) {
-            var d = j + i * 7;
-            console.log(
-              "%cCALENDAR INNER 1st: " +
-                calendarYear +
-                ">=" +
-                currentYear +
-                "&&" +
-                calendarMonth +
-                ">=" +
-                currentMonth +
-                " calendarDaySiftByParameter: " +
-                calendarDaySiftByParameter,
-              "background: #d8b481; color: #1f630a"
-            );
-            if (
-              (calendarYear > currentYear ||
-                (calendarYear == currentYear &&
-                  calendarMonth >= currentMonth)) &&
-              d >= calenderStartDate &&
-              incrementedDay <= calendarLastDay &&
-              incrementedDay >= tempCalendarDay + calendarDaySiftByParameter
-            ) {
-              innerTable +=
-                "<td data-selectable='true' class='bordered-a8f785' style='background-color:#a8f785;cursor:pointer;' onClick='selectDay(this,calendarYear,calendarMonth);'>" +
-                incrementedDay +
-                "</td>";
-              incrementedDay++;
-            } else if (
-              d >= calenderStartDate &&
-              incrementedDay <= calendarLastDay
-            ) {
-              innerTable +=
-                "<td data-selectable='false' class='bordered' style='cursor:not-allowed;'>" +
-                incrementedDay +
-                "</td>";
-              incrementedDay++;
-            } else {
-              innerTable += "<td data-selectable='false'></td>";
-            }
-          }
-          innerTable += "</tr>";
-          if (incrementedDay > calendarLastDay) {
-            break;
-          }
-          heightIncrement++;
-        }
-        dayContainer.innerHTML = innerTable;
-        var calendarContainerDisplay =
-          document.getElementById("calendar-container");
-        var elmRect = elm.getBoundingClientRect();
-        calendarContainerDisplay.style.top =
-          elmRect.bottom + window.scrollY - 2 + "px";
-
-        calendarContainerDisplay.style.display =
-          calendarContainerDisplay.style.display == "block" ? "none" : "block";
-      } else if (
-        parseInt(calendarStart[0]) == calendarYear &&
-        parseInt(calendarStart[1]) - 1 == calendarMonth
-      ) {
-        console.log(
-          "%cCALENDAR INNER 2nd",
-          "background: #d8b481; color: #1f630a"
-        );
-        console.log(
-          "%cCALENDAR INNER 2nd: " +
-            calendarStart[0] +
-            "==" +
-            currentYear +
-            "&&" +
-            (parseInt(calendarStart[1]) - 1) +
-            "==" +
-            currentMonth,
-          "background: #d8b481; color: #1f630a"
-        );
-       
-        var monthContainer = document.getElementById(
-          "calendar-month-container"
-        );
-        var innerTd = month[calendarMonth] + " " + calendarYear;
-        monthContainer.innerHTML = innerTd;
-        var dayContainer = document.getElementById("calendar-day-container");
-        var incrementedDay = 1;
-        var heightIncrement = 1;
-        var innerTable = "";
-      
-        for (var i = 0; i < 6; i++) {
-          innerTable += "<tr>";
-          for (var j = 0; j < 7; j++) {
-            var d = j + i * 7;
-            if (
-              d >= calenderStartDate &&
-              incrementedDay <= calendarLastDay &&
-              incrementedDay >= tempCalendarDay + calendarDaySiftByParameter
-            ) {
-              if (parseInt(calendarStart[2]) == incrementedDay) {
-                innerTable +=
-                  "<td data-selectable='true' class='bordered-368513' style='background-color:#368513;cursor:pointer;' onClick='selectDay(this,calendarYear,calendarMonth);'>" +
-                  incrementedDay +
-                  "</td>";
-              } else {
-                innerTable +=
-                  "<td data-selectable='true' class='bordered-a8f785' style='background-color:#a8f785;cursor:pointer;' onClick='selectDay(this,calendarYear,calendarMonth);'>" +
-                  incrementedDay +
-                  "</td>";
-              }
-              incrementedDay++;
-            } else if (
-              d >= calenderStartDate &&
-              incrementedDay <= calendarLastDay
-            ) {
-              innerTable +=
-                "<td data-selectable='false' class='bordered' style='cursor:not-allowed;'>" +
-                incrementedDay +
-                "</td>";
-              incrementedDay++;
-            } else {
-              innerTable += "<td data-selectable='false'></td>";
-            }
-          }
-          innerTable += "</tr>";
-          if (incrementedDay > calendarLastDay) {
-            break;
-          }
-          heightIncrement++;
-        }
-        dayContainer.innerHTML = innerTable;
-        var calendarContainerDisplay =
-          document.getElementById("calendar-container");
-      } else {
-        console.log(
-          "%cCALENDAR INNER 3rd",
-          "background: #d8b481; color: #1f630a"
-        );
-
-        var dayContainer = document.getElementById("calendar-day-container");
-        dayContainer.innerHTML = "";
-
-        var incrementedDay = 1;
-        var innerTable = "";
-
-        for (var i = 0; i < 6; i++) {
-          innerTable += "<tr>";
-          for (var j = 0; j < 7; j++) {
-            var d = j + i * 7;
-            console.log(
-              "#################### " +
-                incrementedDay +
-                " >= " +
-                tempCalendarDay +
-                " + " +
-                calendarDaySiftByParameter
-            );
-            if (
-              (calendarYear > currentYear ||
-                (calendarYear == currentYear &&
-                  calendarMonth >= currentMonth)) &&
-              d >= calenderStartDate &&
-              incrementedDay <= calendarLastDay &&
-              incrementedDay >= tempCalendarDay + calendarDaySiftByParameter
-            ) {
-              if (
-                parseInt(calendarStart[0]) == calendarYear &&
-                parseInt(calendarStart[1]) - 1 == calendarMonth &&
-                parseInt(calendarStart[2]) == incrementedDay
-              ) {
-                innerTable +=
-                  "<td data-selectable='true' class='bordered-368513' style='background-color:#368513;cursor:pointer;' onClick='selectDay(this,calendarYear,calendarMonth);'>" +
-                  incrementedDay +
-                  "</td>";
-              } else {
-                innerTable +=
-                  "<td data-selectable='true' class='bordered-a8f785' style='background-color:#a8f785;cursor:pointer;' onClick='selectDay(this,calendarYear,calendarMonth);'>" +
-                  incrementedDay +
-                  "</td>";
-              }
-              incrementedDay++;
-            } else if (
-              d >= calenderStartDate &&
-              incrementedDay <= calendarLastDay
-            ) {
-              innerTable +=
-                "<td data-selectable='false' class='bordered' style='cursor:not-allowed;'>" +
-                incrementedDay +
-                "</td>";
-              incrementedDay++;
-            } else {
-              innerTable += "<td data-selectable='false'></td>";
-            }
-          }
-          innerTable += "</tr>";
-          if (incrementedDay > calendarLastDay) {
-            break;
-          }
-        }
-        dayContainer.innerHTML = innerTable;
-        var calendarContainerDisplay =
-          document.getElementById("calendar-container");
-      }
-    }
-
-    function createCalendar(elm) {
-      var d = new Date();
-      currentYear = d.getFullYear();
-      currentMonth = d.getMonth();
-      currentDay = d.getDate();
-      currentLastDay = lastday(currentYear, currentMonth);
-      currentRemainingDayOfCurrentMonth = currentLastDay - currentDay + 1;
-      currentStartDate = startOfMonth(currentYear, currentMonth);
-      calendarStart = document.getElementById("calendarstart").value.split("/");
-      // DEBUG CHECKING THE CALENDAR
-      console.log("WHEN OPENING THE CALENDAR: " + calendarStart.length);
-      if (calendarStart.length < 3) {
-        console.log(
-          "%cCREATE CALENDAR 1st",
-          "background: #baff00; color: #02194d"
-        );
-        // DEBUG CHECKING THE CALENDAR
-        console.log(
-          "1st: CURR YEAR: " +
-            currentYear +
-            " && CURR MONTH: " +
-            currentMonth +
-            " && CURR DAY: " +
-            currentDay +
-            " && CURR LAST: " +
-            currentLastDay +
-            " && CURR REMAINING: " +
-            currentRemainingDayOfCurrentMonth
-        );
-        calendarYear = currentYear;
-        calendarMonth = currentMonth;
-        calendarDay = currentDay;
-        calendarLastDay = currentLastDay;
-        calenderStartDate = currentStartDate;
-        console.log(
-          "WHEN OPENING THE CALENDAR ======== currentYear: " +
-            currentYear +
-            " calendarYear: " +
-            calendarYear +
-            " currentMonth: " +
-            currentMonth +
-            " calendarMonth: " +
-            calendarMonth +
-            " currentStartDate: " +
-            currentStartDate
-        );
-        var tempCalendarDay = currentMonth == calendarMonth ? calendarDay : 0;
-        console.log(
-          "################## WHEN OPENING THE CALENDAR currentMonth: " +
-            currentMonth +
-            " currentDay: " +
-            currentDay +
-            " tempCalendarDay: " +
-            tempCalendarDay +
-            " calendarDaySift: " +
-            calendarDaySift
-        );
-        var monthContainer = document.getElementById(
-          "calendar-month-container"
-        );
-        var innerTd = month[calendarMonth] + " " + calendarYear;
-        monthContainer.innerHTML = innerTd;
-        var dayContainer = document.getElementById("calendar-day-container");
-        var incrementedDay = 1;
-        var heightIncrement = 1;
-        var innerTable = "";
-        // DEBUG <tr>
-        /*
-		innerTable += "<tr><td class='bordered_inner_bubble' style='background-color:#ff00ff;'>Su</td><td class='bordered_inner_bubble' style='background-color:#ff00ff;'>Mo</td><td class='bordered_inner_bubble' style='background-color:#ff00ff;'>Tu</td><td class='bordered_inner_bubble' style='background-color:#ff00ff;'>We</td><td class='bordered_inner_bubble' style='background-color:#ff00ff;'>Th</td><td class='bordered_inner_bubble' style='background-color:#ff00ff;'>Fr</td><td class='bordered_inner_bubble' style='background-color:#ff00ff;'>Sa</td></tr><tr style='position: relative;overflow: hidden;width: 100%;display: inline-block;'><td colspan='7' style='position: absolute;left: 0;top: 0;'><table style='width:236px;height:32px !important;table-layout:fixed;table-layout:fixed;display:table;padding:0px;margin:0px;text-align:center;border: 2px solid #d3d3d3;border-radius: 28px;-webkit-border-radius: 28px;-moz-border-radius: 28px;'><tr><td></td></tr></table></td></tr>";
-		*/
-        for (var i = 0; i < 6; i++) {
-          innerTable += "<tr>";
-          for (var j = 0; j < 7; j++) {
-            var d = j + i * 7;
-            if (
-              d >= calenderStartDate &&
-              incrementedDay <= calendarLastDay &&
-              incrementedDay >= tempCalendarDay + calendarDaySift
-            ) {
-              innerTable +=
-                "<td data-selectable='true' class='bordered-a8f785' style='background-color:#a8f785;cursor:pointer;' onClick='selectDay(this,calendarYear,calendarMonth);'>" +
-                incrementedDay +
-                "</td>";
-              incrementedDay++;
-            } else if (
-              d >= calenderStartDate &&
-              incrementedDay <= calendarLastDay
-            ) {
-              innerTable +=
-                "<td data-selectable='false' class='bordered' style='cursor:not-allowed;'>" +
-                incrementedDay +
-                "</td>";
-              incrementedDay++;
-            } else {
-              innerTable += "<td data-selectable='false'></td>";
-            }
-          }
-          innerTable += "</tr>";
-          if (incrementedDay > calendarLastDay) {
-            break;
-          }
-          heightIncrement++;
-        }
-        dayContainer.innerHTML = innerTable;
-        var calendarContainerDisplay =
-          document.getElementById("calendar-container");
-        var elmRect = elm.getBoundingClientRect();
-        calendarContainerDisplay.style.top =
-          elmRect.bottom + window.scrollY - 2 + "px";
-        //calendarContainerDisplay.style.top = elmRect.top - (31 + 24 + heightIncrement * 25) + document.documentElement.scrollTop + "px";
-        //calendarContainerDisplay.style.height = (31 + 24 + heightIncrement * 25) + "px";
-        calendarContainerDisplay.style.display =
-          calendarContainerDisplay.style.display == "block" ? "none" : "block";
-        resizeContainer();
-      } else if (
-        parseInt(calendarStart[0]) == currentYear &&
-        parseInt(calendarStart[1]) - 1 == currentMonth
-      ) {
-        console.log(
-          "%cCREATE CALENDAR 2nd",
-          "background: #baff00; color: #02194d"
-        );
-        // DEBUG CHECKING THE CALENDAR
-        console.log(
-          "2nd: " +
-            parseInt(calendarStart[0]) +
-            " ?= " +
-            currentYear +
-            " && " +
-            parseInt(calendarStart[1]) +
-            " ?= " +
-            currentMonth +
-            " && " +
-            parseInt(calendarStart[2]) +
-            " ?= " +
-            currentDay
-        );
     
-        calendarYear = currentYear;
-        calendarMonth = currentMonth;
-        calendarDay = currentDay;
-        calendarLastDay = currentLastDay;
-        calenderStartDate = currentStartDate;
-        var tempCalendarDay = currentMonth == calendarMonth ? calendarDay : 0;
-        var monthContainer = document.getElementById(
-          "calendar-month-container"
-        );
-        var innerTd = month[calendarMonth] + " " + calendarYear;
-        monthContainer.innerHTML = innerTd;
-        var dayContainer = document.getElementById("calendar-day-container");
-        var incrementedDay = 1;
-        var heightIncrement = 1;
-        var innerTable = "";
+ 
+ 
+ 
+ 
+   
       
-        for (var i = 0; i < 6; i++) {
-          innerTable += "<tr>";
-          for (var j = 0; j < 7; j++) {
-            var d = j + i * 7;
-            if (
-              d >= calenderStartDate &&
-              incrementedDay <= calendarLastDay &&
-              incrementedDay >= tempCalendarDay + calendarDaySift
-            ) {
-              innerTable +=
-                "<td data-selectable='true' class='bordered-a8f785' style='background-color:#a8f785;cursor:pointer;' onClick='selectDay(this,calendarYear,calendarMonth);'>" +
-                incrementedDay +
-                "</td>";
-              incrementedDay++;
-            } else if (
-              d >= calenderStartDate &&
-              incrementedDay <= calendarLastDay
-            ) {
-              innerTable +=
-                "<td data-selectable='false' class='bordered' style='cursor:not-allowed;'>" +
-                incrementedDay +
-                "</td>";
-              incrementedDay++;
-            } else {
-              innerTable += "<td data-selectable='false'></td>";
-            }
-          }
-          innerTable += "</tr>";
-          if (incrementedDay > calendarLastDay) {
-            break;
-          }
-          heightIncrement++;
-        }
-        dayContainer.innerHTML = innerTable;
-        var calendarContainerDisplay =
-          document.getElementById("calendar-container");
-        var elmRect = elm.getBoundingClientRect();
-        calendarContainerDisplay.style.top =
-          elmRect.bottom + window.scrollY - 2 + "px";
-
-        calendarContainerDisplay.style.display =
-          calendarContainerDisplay.style.display == "block" ? "none" : "block";
-        resizeContainer();
-        var allTd = dayContainer.getElementsByTagName("td");
-        for (var i = 0; i < allTd.length; i++) {
-          if (allTd[i].innerHTML == parseInt(calendarStart[2])) {
-            selectDay(allTd[i], calendarYear, calendarMonth);
-          }
-        }
-      } else {
-        console.log(
-          "%cCREATE CALENDAR 3rd",
-          "background: #baff00; color: #02194d"
-        );
-
-        var tempCalendarDay = currentMonth == calendarMonth ? calendarDay : 0;
-        var dayContainer = document.getElementById("calendar-day-container");
-        dayContainer.innerHTML = "";
-        if (calendarMonth + 1 <= 11) {
-          calendarMonth += 1;
-        } else {
-          calendarMonth = 0;
-          calendarYear += 1;
-        }
-        calendarYear = parseInt(calendarStart[0]);
-        calendarMonth = parseInt(calendarStart[1]) - 1;
-
-        var monthContainer = document.getElementById(
-          "calendar-month-container"
-        );
-        var innerTd = month[calendarMonth] + " " + calendarYear;
-        monthContainer.innerHTML = innerTd;
-        calendarLastDay = lastday(calendarYear, calendarMonth);
-        calenderStartDate = startOfMonth(calendarYear, calendarMonth);
-        var incrementedDay = 1;
-        var innerTable = "";
-
-        for (var i = 0; i < 6; i++) {
-          innerTable += "<tr>";
-          for (var j = 0; j < 7; j++) {
-            var d = j + i * 7;
-            if (
-              d >= calenderStartDate &&
-              incrementedDay <= calendarLastDay &&
-              incrementedDay >= tempCalendarDay + calendarDaySift
-            ) {
-              innerTable +=
-                "<td data-selectable='true' class='bordered-a8f785' style='background-color:#a8f785;cursor:pointer;' onClick='selectDay(this,calendarYear,calendarMonth);'>" +
-                incrementedDay +
-                "</td>";
-              incrementedDay++;
-            } else if (
-              d >= calenderStartDate &&
-              incrementedDay <= calendarLastDay
-            ) {
-              innerTable +=
-                "<td data-selectable='false' class='bordered' style='cursor:not-allowed;'>" +
-                incrementedDay +
-                "</td>";
-              incrementedDay++;
-            } else {
-              innerTable += "<td data-selectable='false'></td>";
-            }
-          }
-          innerTable += "</tr>";
-          if (incrementedDay > calendarLastDay) {
-            break;
-          }
-        }
-        dayContainer.innerHTML = innerTable;
-        var calendarContainerDisplay =
-          document.getElementById("calendar-container");
-        var elmRect = elm.getBoundingClientRect();
-        calendarContainerDisplay.style.top =
-          elmRect.bottom + window.scrollY - 2 + "px";
-        calendarContainerDisplay.style.display =
-          calendarContainerDisplay.style.display == "block" ? "none" : "block";
-        resizeContainer();
-        var allTd = dayContainer.getElementsByTagName("td");
-        for (var i = 0; i < allTd.length; i++) {
-          if (allTd[i].innerHTML == parseInt(calendarStart[2])) {
-            selectDay(allTd[i], calendarYear, calendarMonth);
-          }
-        }
-      }
-    }
-
-    function backwardCalendar() {
-      var dayContainer = document.getElementById("calendar-day-container");
-      dayContainer.innerHTML = "";
-      if (calendarMonth - 1 >= 0) {
-        calendarMonth -= 1;
-      } else {
-        calendarMonth = 11;
-        calendarYear -= 1;
-      }
-      var monthContainer = document.getElementById("calendar-month-container");
-      var innerTd = month[calendarMonth] + " " + calendarYear;
-      monthContainer.innerHTML = innerTd;
-      calendarLastDay = lastday(calendarYear, calendarMonth);
-      calenderStartDate = startOfMonth(calendarYear, calendarMonth);
-      calendarDaySiftPassParameter = 0;
-      if (currentYear == calendarYear && currentMonth == calendarMonth) {
-        calenderStartDate = currentStartDate;
-        calendarDay = currentDay;
-        if (calendarDaySift > 0) {
-          calendarDaySiftPassParameter = calendarDaySift;
-        } else {
-          calendarDaySiftPassParameter = 0;
-        }
-      } else if (
-        (currentYear + 1 == calendarYear && calendarMonth == 0) ||
-        (currentYear == calendarYear && currentMonth + 1 == calendarMonth)
-      ) {
-        calendarDay = currentDay;
-        if (calendarDaySift > 0) {
-          calendarDaySiftPassParameter =
-            calendarDaySift - (calendarLastDay - currentDay);
-        } else {
-          calendarDaySiftPassParameter = 0;
-        }
-      } else if (calendarYear <= currentYear && calendarMonth < currentMonth) {
-        calendarDay = 32;
-      } else {
-        calendarDay = 1;
-      }
-      console.log(
-        "======== currentYear: " +
-          currentYear +
-          " calendarYear: " +
-          calendarYear +
-          " currentMonth: " +
-          currentMonth +
-          " calendarMonth: " +
-          calendarMonth +
-          " currentStartDate: " +
-          currentStartDate
-      );
-      calendarInner(
-        calendarYear,
-        calendarMonth,
-        calendarDay,
-        calendarLastDay,
-        calenderStartDate,
-        calendarDaySiftPassParameter
-      );
-    }
-    function forwardCalendar() {
-      var dayContainer = document.getElementById("calendar-day-container");
-      dayContainer.innerHTML = "";
-      console.log(
-        "BEFORE INCREMENT ========== currentYear: " +
-          currentYear +
-          " calendarYear: " +
-          calendarYear +
-          " currentMonth: " +
-          currentMonth +
-          " calendarMonth: " +
-          calendarMonth +
-          " currentStartDate: " +
-          currentStartDate
-      );
-      if (calendarMonth + 1 <= 11) {
-        calendarMonth += 1;
-      } else {
-        calendarMonth = 0;
-        calendarYear += 1;
-      }
-      console.log(
-        "AFTER INCREMENT ========== currentYear: " +
-          currentYear +
-          " calendarYear: " +
-          calendarYear +
-          " currentMonth: " +
-          currentMonth +
-          " calendarMonth: " +
-          calendarMonth +
-          " currentStartDate: " +
-          currentStartDate
-      );
-
-      var monthContainer = document.getElementById("calendar-month-container");
-      var innerTd = month[calendarMonth] + " " + calendarYear;
-      monthContainer.innerHTML = innerTd;
-      calendarLastDay = lastday(calendarYear, calendarMonth);
-      calenderStartDate = startOfMonth(calendarYear, calendarMonth);
-      calendarDaySiftPassParameter = 0;
-      console.log(
-        "INNER FORWARD calendarDaySift: " +
-          calendarDaySift +
-          " ( " +
-          currentYear +
-          " == " +
-          calendarYear +
-          " && " +
-          currentMonth +
-          " == " +
-          calendarMonth +
-          ") || ( " +
-          (calendarLastDay - currentDay)
-      );
-      if (currentYear == calendarYear && currentMonth == calendarMonth) {
-        calenderStartDate = currentStartDate;
-        calendarDay = currentDay;
-        if (calendarDaySift > 0) {
-          calendarDaySiftPassParameter = calendarDaySift;
-        } else {
-          calendarDaySiftPassParameter = 0;
-        }
-      } else if (
-        (currentYear + 1 == calendarYear && calendarMonth == 0) ||
-        (currentYear == calendarYear && currentMonth + 1 == calendarMonth)
-      ) {
-        calendarDay = 1;
-        if (calendarDaySift > 0) {
-          calendarDaySiftPassParameter =
-            calendarDaySift - (calendarLastDay - currentDay);
-        } else {
-          calendarDaySiftPassParameter = 0;
-        }
-        console.log(
-          "INNER FORWARD DAY SHIFT CALCULATION 1 ======================= " +
-            calendarDaySift +
-            " =================="
-        );
-      } else {
-        console.log(
-          "INNER FORWARD DAY SHIFT CALCULATION 2 ======================= " +
-            calendarDaySift +
-            " =================="
-        );
-        calendarDay = 1;
-      }
-      console.log(
-        "======== currentYear: " +
-          currentYear +
-          " calendarYear: " +
-          calendarYear +
-          " currentMonth: " +
-          currentMonth +
-          " calendarMonth: " +
-          calendarMonth +
-          " currentStartDate: " +
-          currentStartDate
-      );
-      calendarInner(
-        calendarYear,
-        calendarMonth,
-        calendarDay,
-        calendarLastDay,
-        calenderStartDate,
-        calendarDaySiftPassParameter
-      );
-    }
-    function lastday(y, m) {
-      return new Date(y, m + 1, 0).getDate();
-    }
-    function startOfMonth(y, m) {
-      return new Date(y, m, 1).getDay();
-    }
-    function selectDay(elm, calendarYear, calendarMonth) {
-      calendarMonth++;
-      calendarMonth =
-        calendarMonth < 10
-          ? "0" + calendarMonth.toString()
-          : calendarMonth.toString();
-      var calendarDay = parseInt(elm.innerHTML);
-      calendarDay =
-        calendarDay < 10
-          ? "0" + calendarDay.toString()
-          : calendarDay.toString();
-      document.getElementById("calendarstart").value =
-        calendarYear + "/" + calendarMonth + "/" + calendarDay;
-      calendarStart = document.getElementById("calendarstart").value.split("/");
-      if (elm.getAttribute("data-selectable") == "true") {
-        if (selectedStartingDay) {
-          selectedStartingDay.style.backgroundColor = "#a8f785";
-          selectedStartingDay.setAttribute("class", "bordered-a8f785");
-          selectedStartingDay.style.color = "#000000";
-        }
-        elm.style.backgroundColor = "#368513";
-        elm.setAttribute("class", "bordered-368513");
-        elm.style.color = "#ffffff";
-        selectedStartingDay = elm;
-      }
-    }
-    function checkIsParticipant(elm) {
-      if (document.getElementById("isParticipant").checked) {
-        if (document.getElementById("firstname")) {
-          document.getElementById("firstname-1").value =
-            document.getElementById("firstname").value;
-        } else if (document.getElementById("firstname")) {
-          document.getElementById("firstname-1").value =
-            document.getElementById("firstname").value;
-        }
-        auto_height(document.getElementById("firstname-1"), 45);
-        if (document.getElementById("surname")) {
-          document.getElementById("surname-1").value =
-            document.getElementById("surname").value;
-        } else if (document.getElementById("surname")) {
-          document.getElementById("surname-1").value =
-            document.getElementById("surname").value;
-        }
-        auto_height(document.getElementById("surname-1"), 45);
-        document.getElementById("email-1").value =
-          document.getElementById("email").value;
-        auto_height(document.getElementById("email-1"), 45);
-      } else {
-        document.getElementById("firstname-1").value = "";
-        document.getElementById("surname-1").value = "";
-        document.getElementById("email-1").value = "";
-      }
-      var validity = mouseOverCheck();
-      if (validity) {
-        document
-          .getElementById("paypal-integration")
-          .removeAttribute("onClick");
-        document.getElementById("paypal-button-container").style.pointerEvents =
-          "auto";
-      } else {
-        document
-          .getElementById("paypal-integration")
-          .setAttribute("onClick", "mouseOnClickCheck();");
-        document.getElementById("paypal-button-container").style.pointerEvents =
-          "none";
-      }
-    }
-    function checkValid(str) {
-      return !str || str.length === 0 || /^\s*$/.test(str);
-    }
-    function showMyFileName() {
-      var myFileName = document.getElementById("upload-myfile");
-      document.getElementById("myfile-name").value =
-        myFileName.files.item(0).name;
-      auto_height(document.getElementById("myfile-name"), 45);
-    }
-    function formatDate(date) {
-      var d = new Date(date),
-        month = "" + (d.getMonth() + 1),
-        day = "" + d.getDate(),
-        year = d.getFullYear();
-      if (month.length < 2) {
-        month = "0" + month;
-      }
-      if (day.length < 2) {
-        day = "0" + day;
-      }
-      return [year, month, day].join("/");
-    }
-  
-    if (selfStudyProduct) {
-      document.getElementById("calendarstartTr").style.display = "none";
-      document.getElementById("calendarstart").value = registrationDate;
-    }
-    changeAmountInContainerTable(parseInt(document.getElementById("amount")));
-    //setTimeout(function(){ resizeContainer(); }, 100);
-    setInterval(function () {
-      /*
-  var registrationFormAmount = document.getElementById("registration_form").amount.value ? parseInt(document.getElementById("registration_form").amount.value) : 0;
-  */
-      var registrationFormAmount = document.getElementById("amount").value
-        ? parseInt(document.getElementById("amount").value)
-        : 0;
-      registrationDayAmount = document.getElementById("paidamountbyhand").value
-        ? parseInt(document.getElementById("paidamountbyhand").value)
-        : 1;
-      if (!perDay) {
-        var paypalCalculatedValue = productPrice * registrationFormAmount;
-        document.getElementById("full-amount").value = paypalCalculatedValue;
-        paypalCalculatedValue =
-          paypalCalculatedValue -
-          paypalCalculatedValue * (productDiscount / 100);
-        document.getElementById("paid-amount").value = paypalCalculatedValue;
-        document.getElementById("calendarstartforend").value = registrationDate;
-        if (document.getElementById("calendarend").value != "2122/12/31") {
-          document.getElementById("calendarend").value = "2122/12/31";
-        }
-      } else if (perDay) {
-        document.getElementById("calendarstartforend").value =
-          document.getElementById("calendarstart").value;
-        var paypalCalculatedValue =
-          productPrice * registrationFormAmount * registrationDayAmount;
-        document.getElementById("full-amount").value = paypalCalculatedValue;
-        paypalCalculatedValue =
-          paypalCalculatedValue -
-          paypalCalculatedValue * (productDiscount / 100);
-        document.getElementById("paid-amount").value = paypalCalculatedValue;
-        // ENDING DATE HAS TO BE SET
-        const calendarStartConst = document
-          .getElementById("calendarstart")
-          .value.replace(/\//g, "-");
-        // IN FORMAT AS Date(2027, 6, 24)
-        const calendarStartNext = new Date(calendarStartConst);
-        calendarStartNext.setDate(
-          calendarStartNext.getDate() +
-            parseInt(document.getElementById("paidamountbyhand").value)
-        );
-        const currentFormatDate = formatDate(calendarStartNext);
-        if (document.getElementById("calendarend").value != currentFormatDate) {
-          document.getElementById("calendarend").value = currentFormatDate;
-        }
-      }
-      calculatedValue = parseInt(document.getElementById("paid-amount").value);
-
-      document.getElementById("paid-currency").value = calculatedValue + " USD";
-    }, 500);
-    setInterval(function () {
-      auto_height(document.getElementById("product-title"), 45);
-      resizeContainer();
-    }, 500);
   </script>
 </html>
