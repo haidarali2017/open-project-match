@@ -1,4 +1,4 @@
- 
+  
 <html>
    <head>  
       <title>Global Vision</title>
@@ -16,12 +16,7 @@
       <link rel="stylesheet" type="text/css" href="css/global-vision-corporate.css" media="all"> 
    </head>
    <body>
-   <?php 
-      session_start();
-    
-    ?>
       <div>
-      
          <div id="fullscreenId">
             
             <div class="signup bounceInUp animated">
@@ -53,32 +48,42 @@
                            </div>
                          </div>
                          
-                         <div class="custom-margin-bottom">
-                           <div class="no-border-3e9721-background-bubble whole-project">
-                             <a class="project-header">Website Redesign Expert Needed</a>
-                             <div class="project-body">
-                               The goal is to enhance its visual appeal, improve user experience, and ensure it is mobile-responsive.
-                             </div> 
-                           </div>
-                           <div class="no-border-3e9721-background-bubble whole-project">
+                        <div class="custom-margin-bottom">
+                           
+                           <div class="upload-projects-container"></div> 
+
+
+
+                           <!-- <div class="no-border-3e9721-background-bubble whole-project">
+                              <a class="project-header">Website Redesign Expert Needed</a>
+                              <div class="project-body">
+                                 The goal is to enhance its visual appeal, improve user experience, and ensure it is mobile-responsive.
+                              </div> 
+                           </div> -->
+
+                           <!-- <div class="no-border-3e9721-background-bubble whole-project">
                              <a class="project-header">WordPress Designer & Coder Needed</a>
                              <div class="project-body">
                                We are seeking a talented WordPress designer and coder with expertise in Elementor for our exciting 'WineParty' project.
                              </div> 
                            </div>
+
                            <div class="no-border-3e9721-background-bubble whole-project">
                              <a class="project-header">2 Figma designed pages web and mobile to WordPress Elementor</a>
                              <div class="project-body">
                                I need two Figma page designs (home and subpage, both web and mobile) converted into a WordPress site using Elementor.
                              </div>  
                            </div> 
+                           
                            <div class="no-border-3e9721-background-bubble whole-project">
                              <a class="project-header">Integrate Stripe API into React/JS app</a>
                              <div class="project-body">
                                I have a React/JS app which currently has no subscriptions and is free for users to use.
                                I would like to integrate Stripe's API to enable subscriptions and then link account features to those subscriptions.
                              </div>  
-                           </div>
+                           </div> -->
+
+
                          </div>
                          
                          <script>
@@ -99,8 +104,7 @@
                          });
                          </script>
                          
-                          
-                         
+                        
                          <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" style="color:#15BB39;font-style:italic; padding: 11px 10px 11px 8px;background: #fff;" onmouseover="this.style.color='#15BB39';" onmouseout="this.style.color='#15BB39';" data-logname="MENU::hamburger-1-1" onclick="navigateToNewTabWithRootAndAnchorAttributes('PROJECTS.php');">
                            LOAD MORE <br> OPEN PROJECTS<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrow17BC3AActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></div>
                         </div>
@@ -111,7 +115,49 @@
                </div>
             </div>
          </div>
+
+
+         <script>
+
+            // Upload project data load by SR
+            function loadProjectsData() 
+            {
+               fetch('php/get_upload_projects_data.php') 
+               .then(response => response.json())
+               .then(data => {
+                  var container = document.querySelector('.upload-projects-container');
+                  
+                  container.innerHTML = ''; 
+                  
+                  // Loop through the data and create individual boxes for each project
+                  data.forEach(function(project) {
+                        var projectDiv = document.createElement('div');
+                        projectDiv.classList.add('no-border-3e9721-background-bubble', 'whole-project');
+
+                        projectDiv.innerHTML = `
+                           <div class="project-header">${project.title}</div>
+                           <div class="project-body">
+                              ${project.short_description}
+                           </div>
+                        `;
+
+                        container.appendChild(projectDiv);
+                  });
+               })
+               .catch(error => console.error('Error:', error));
+            }
+
+            document.addEventListener('DOMContentLoaded', loadProjectsData);
+
+
+         </script>
+
+
+
+
+
          <style>
+
             .project-body{
                margin-top:8px;
                padding: 11px 16px 11px 14px;
@@ -169,57 +215,8 @@
                <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" style="color:#d6720e;font-style:italic; padding: 11px 10px 11px 8px;" onmouseover="this.style.color='#ffffff';" onmouseout="this.style.color='#d6720e';" data-logname="MENU::hamburger-1-2" onclick="navigateToNewTabWithRootAndAnchorAttributes('OPEN-PROJECTS.php');">OPEN PROJECTS<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowD6720EActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></div>
                <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" style="color:#b11820;font-style:italic; padding: 11px 10px 11px 8px;" onmouseover="this.style.color='#ffffff';" onmouseout="this.style.color='#b11820';" data-logname="MENU::hamburger-1-3" onclick="navigateToNewTabWithRootAndAnchorAttributes('SOLUTIONS-PROVIDERS.php');">SOLUTION PROVIDERS<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowB11820ActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></div>
                <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" style="color:#6ab174;font-style:italic; padding: 11px 10px 11px 8px;" onmouseover="this.style.color='#ffffff';" onmouseout="this.style.color='#6ab174';" data-logname="MENU::hamburger-1-8" onclick="navigateToNewTabWithRootAndAnchorAttributes('REGISTRATION.php');">REGISTRATION<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrow6AB174ActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></div>
-                  <?php
-                  // Check if the session is already started
-                  if (session_status() === PHP_SESSION_NONE) {
-                     session_start(); // Start the session only if it's not already started
-                  }
-
-                  // Check if the user is logged in
-                  if (isset($_SESSION['id'])) {
-                     // User is logged in, show LOGOUT button
-                     echo '
-                     <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" 
-                           style="color: rgb(0, 0, 0); font-style: italic; padding: 11px 10px 11px 8px;" 
-                           onmouseover="this.style.color=\'#ffffff\';" 
-                           onmouseout="this.style.color=\'#000000\';" 
-                           onclick="sessionDestroy()">LOGOUT
-                        <img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowBlackActiveBorderlessSVG.svg">
-                        <img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG">
-                     </div>';
-                  } else {
-                     // User is not logged in, show LOGIN button
-                      // User is not logged in, show LOGIN button
-               echo '
-               <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" 
-                     style="color: rgb(0, 0, 0); font-style: italic; padding: 11px 10px 11px 8px;" 
-                     onmouseover="this.style.color=\'#ffffff\';" 
-                     onmouseout="this.style.color=\'#000000\';" 
-                     onclick="window.open(\'LOGIN.php\');">LOGIN
-                  <img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowBlackActiveBorderlessSVG.svg">
-                  <img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG">
-               </div>';
-                 
-                  }
-                  ?>
-               <script>
-               function sessionDestroy() {
-                  var xhr = new XMLHttpRequest();
-                  xhr.open("POST", "hello.php", true);
-                  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                  
-                  xhr.onload = function() {
-                     if (xhr.status === 200) {
-                           // Update the response message
-                           document.getElementById("responseMessage").innerText = xhr.responseText;
-                     }
-                  };
-
-                  xhr.send();
-               }
-               </script>
-
-               </div>
+               <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" style="color: rgb(0, 0, 0);font-style: italic;padding: 11px 10px 11px 8px;" onmouseover="this.style.color='#ffffff';" onmouseout="this.style.color='#000000';" onclick="window.open('LOGIN.php');">LOGIN<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowBlackActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></div>
+            </div>
          </div>
       </div>
       <script type="text/javascript">

@@ -49,7 +49,12 @@
                            </div>
                        
                            <div class="custom-margin-bottom" id="projectContainer">
-                               <div class="no-border-3e9721-background-bubble whole-project">
+                               
+                              <div class="solution-providers-container"></div> 
+
+
+                              <!--                                
+                              <div class="no-border-3e9721-background-bubble whole-project">
                                    <a class="project-header">Joachim Klatt</a>
                                    <div class="project-position">Project Manager</div>
                                    <div class="project-body">
@@ -71,7 +76,8 @@
                                    <div class="project-body">
                                        Full-Stack Developer with experience in various technologies like JavaScript, PHP, MySQL, etc.
                                    </div> 
-                               </div>
+                               </div> -->
+
                            </div>
                        </div>
                        
@@ -105,6 +111,45 @@
                </div>
             </div>
          </div>
+
+
+
+         <script>
+         // Solution provider data load by SR
+         function loadUserData() {
+            fetch('php/get_solution_providers_data.php') 
+            .then(response => response.json())
+            .then(data => {
+               var container = document.querySelector('.solution-providers-container');
+               
+               container.innerHTML = ''; 
+               
+               // Loop through the data and create individual boxes for each user
+               data.forEach(function(user) {
+                     var userDiv = document.createElement('div');
+                     userDiv.classList.add('no-border-3e9721-background-bubble', 'whole-project');
+
+                     // Add the user data into the div as a separate box
+                     userDiv.innerHTML = `
+                        <a class="project-header">${user.firstname} ${user.surname}</a>
+                        <div class="project-body">
+                           Email: ${user.email}<br>
+                           Mobile: ${user.mobile}
+                        </div>
+                     `;
+
+                     container.appendChild(userDiv);
+                  });
+               })
+               .catch(error => console.error('Error:', error));
+            }
+
+            document.addEventListener('DOMContentLoaded', loadUserData);
+
+         </script>
+
+
+
          <style>
             .project-body{
                margin-top:8px;

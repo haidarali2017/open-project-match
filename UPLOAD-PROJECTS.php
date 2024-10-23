@@ -1,29 +1,4 @@
-<script>
-  var geoLoc =
-    "103.92.204.29;Bangladesh;Dhaka;Dhaka Division;Dhaka;23.8175;90.4096;Asia/Dhaka";
-</script>
-<script>
-  var userAgent =
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML; like Gecko) Chrome/129.0.0.0 Safari/537.36";
-</script>
-<script>
-  var action = "https://global-vision.world/registration/register.php?code=PGS";
-</script>
-<script>
-  var isMACCode = false;
-</script>
-<script type="text/javascript">
-  var productCode = "PGS";
-  var productTitle =
-    "EMPLOYEE GROWTH PACKAGE (ALL 17 TOPICS + 49-DAY ENGLISH REFRESHER) – SELF-STUDY";
-  var productPrice = 790;
-  var productDiscount = 0;
-  var productPath =
-    "Do you have any questions? Feel free to contact us at: talk@global-vision.world";
-</script>
-<script type="text/javascript">
-  var registrationDate = "2024/10/17";
-</script>
+ 
 <!DOCTYPE html>
 <html>
   <head>
@@ -552,7 +527,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <a href="#" style="text-decoration: none"
+                    <a href="http://localhost/open-project-match/OPEN-PROJECTS.php" onclick="uploadProSubmitData()" style="text-decoration: none"
                       ><span
                         class="no-border-c2d223-background-bubble to-no-border-black-background bubble-13px-important-padding word-break-all custom-background"
                       >
@@ -561,7 +536,7 @@
                           <img
                             class="svg-right-navigator"
                             src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg"
-                          /> </strong></span
+                        /> </strong></span
                     ></a>
                   </td>
                 </tr>
@@ -577,6 +552,47 @@
           </div>
         </div>
       </div>
+
+
+      <script>
+        // Upload project submit function call by SR
+        function uploadProSubmitData() 
+        {
+          var formData = new FormData(document.getElementById("registration_form"));
+
+          // Send the data via AJAX 
+          fetch("php/upload_project_submit.php", {
+              method: "POST",
+              body: formData
+          })
+          
+          .then(response => response.json())
+          .then(data => {
+              if (data.success) 
+              {
+                var successMessageDiv = document.getElementById("successMessage");
+                successMessageDiv.style.display = "block"; 
+
+                // Hide the message
+                setTimeout(function() {
+                    successMessageDiv.style.display = "block"; 
+                    window.location.href = "http://localhost/open-project-match/OPEN-PROJECTS.php";
+
+                }, 600);
+
+              } else {
+                  alert("Submission failed: " + data.message); 
+              }
+          })
+          .catch(error => {
+              console.error("Error:", error);
+          });
+        }
+
+      </script>
+
+
+
       <style>
         #fullscreenId {
           height: 1200px;
