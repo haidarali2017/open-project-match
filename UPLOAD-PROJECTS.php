@@ -555,7 +555,7 @@
 
 
       <script>
-        // Upload project submit function call by SR
+        // Upload project submit function call 
         function uploadProSubmitData() 
         {
           var formData = new FormData(document.getElementById("registration_form"));
@@ -1483,13 +1483,10 @@
         }
 
         /* Navigate to New Tab With Attributes of Target Root and Anchor in Page */
-        function navigateToNewTabWithRootAndAnchorAttributes(
-          targetRoot,
-          target
-        ) {
-          targetRoot += "#" + target;
-          window.open(targetRoot, "_blank").focus();
-        }
+        function navigateToNewTabWithRootAndAnchorAttributes(targetRoot) {  
+            
+            window.open(targetRoot, '_blank').focus();
+         }
         /* Navigate to New Tab With Attributes of Target Root and Attribute Value in Page */
         function navigateToNewTabWithRootAndAnchorSubpageAttributes(
           targetRoot,

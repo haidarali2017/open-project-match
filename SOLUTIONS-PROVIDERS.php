@@ -115,7 +115,7 @@
 
 
          <script>
-         // Solution provider data load by SR
+         // Solution provider data load  
          function loadUserData() {
             fetch('php/get_solution_providers_data.php') 
             .then(response => response.json())
@@ -238,8 +238,8 @@
          }
 
    
-         function navigateToNewTabWithRootAndAnchorAttributes(targetRoot, target='') {  
-            targetRoot += "#" + target;
+         function navigateToNewTabWithRootAndAnchorAttributes(targetRoot) {  
+            
             window.open(targetRoot, '_blank').focus();
          }
          function solutionproviders(targetRoot) {  

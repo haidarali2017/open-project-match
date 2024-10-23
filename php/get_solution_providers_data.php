@@ -2,7 +2,7 @@
 
     include "config.php";
 
-    // Solution providers data get by SR
+    // Solution providers data get
     $sql = "SELECT firstname, surname, email, mobile, companyname FROM user WHERE userType = 'solution provider'";
     $result = $conn->query($sql);
 

@@ -635,9 +635,9 @@
             }
 
       
-            function navigateToNewTabWithRootAndAnchorAttributes(targetRoot, target) {  
-            	targetRoot += "#" + target;
-            	window.open(targetRoot, '_blank').focus();
+            function navigateToNewTabWithRootAndAnchorAttributes(targetRoot) {  
+                
+                window.open(targetRoot, '_blank').focus();
             }
             function navigateToNewTabWithRootAndAnchorSubpageAttributes(targetRoot, attrib, value) {  
             	targetRoot += "?" + attrib + "=" + value;

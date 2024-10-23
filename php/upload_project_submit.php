@@ -2,7 +2,7 @@
     include "config.php";
 
     
-    // Upload projects insert by SR
+    // Upload projects insert  
     $title = $_POST['title'];
     $category = $_POST['Category']; 
     $keywords = $_POST['keywords'];

@@ -3,7 +3,7 @@
 
     include "config.php";
 
-    // upload project data get by SR
+    // upload project data get 
     $sql = "SELECT title, category, keywords, my_file_name, short_description, brief_description FROM upload_projects";
     $result = $conn->query($sql);
 

@@ -39,6 +39,12 @@
                   <div class="no-border-white-background-bubble max-width-static-minimal bubble-5mm-padding">
                    
                      <div class="italic-bold custom-top-margin-top">
+                         <div class="custom-margin-bottom">
+                           <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" style="color:#15BB39;font-style:italic; padding: 11px 10px 11px 8px;background: #fff;height: 45px;width: 239px;" onmouseover="this.style.color='#15BB39';" onmouseout="this.style.color='#15BB39';" data-logname="MENU::hamburger-1-1" onclick="navigateToNewTabWithRootAndAnchorAttributes('UPLOAD-PROJECTS.php');">
+                              UPLOAD PROJECT<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrow17BC3AActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></div>
+                           </div>
+                        </div>
+
                         <div class="custom-margin-bottom">
                            <div class="search-container">
                              <input type="text" class="search-input" id="searchInput" placeholder="Search open project..." autocomplete="off">
@@ -46,43 +52,12 @@
                                <img src="img/search.png" style="height:20px;" alt="">
                              </button>
                            </div>
-                         </div>
+                        </div>
                          
+                         <!-- All project show here  -->
                         <div class="custom-margin-bottom">
                            
-                           <div class="upload-projects-container"></div> 
-
-
-
-                           <!-- <div class="no-border-3e9721-background-bubble whole-project">
-                              <a class="project-header">Website Redesign Expert Needed</a>
-                              <div class="project-body">
-                                 The goal is to enhance its visual appeal, improve user experience, and ensure it is mobile-responsive.
-                              </div> 
-                           </div> -->
-
-                           <!-- <div class="no-border-3e9721-background-bubble whole-project">
-                             <a class="project-header">WordPress Designer & Coder Needed</a>
-                             <div class="project-body">
-                               We are seeking a talented WordPress designer and coder with expertise in Elementor for our exciting 'WineParty' project.
-                             </div> 
-                           </div>
-
-                           <div class="no-border-3e9721-background-bubble whole-project">
-                             <a class="project-header">2 Figma designed pages web and mobile to WordPress Elementor</a>
-                             <div class="project-body">
-                               I need two Figma page designs (home and subpage, both web and mobile) converted into a WordPress site using Elementor.
-                             </div>  
-                           </div> 
-                           
-                           <div class="no-border-3e9721-background-bubble whole-project">
-                             <a class="project-header">Integrate Stripe API into React/JS app</a>
-                             <div class="project-body">
-                               I have a React/JS app which currently has no subscriptions and is free for users to use.
-                               I would like to integrate Stripe's API to enable subscriptions and then link account features to those subscriptions.
-                             </div>  
-                           </div> -->
-
+                           <div class="upload-projects-container"></div>  
 
                          </div>
                          
@@ -119,7 +94,7 @@
 
          <script>
 
-            // Upload project data load by SR
+            // Upload project data load  
             function loadProjectsData() 
             {
                fetch('php/get_upload_projects_data.php') 
@@ -248,8 +223,8 @@
          }
 
    
-         function navigateToNewTabWithRootAndAnchorAttributes(targetRoot, target='') {  
-            targetRoot += "#" + target;
+         function navigateToNewTabWithRootAndAnchorAttributes(targetRoot) {  
+            
             window.open(targetRoot, '_blank').focus();
          }
          function solutionproviders(targetRoot) {  
