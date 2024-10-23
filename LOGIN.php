@@ -96,8 +96,7 @@
                      <tbody>
                         <tr>
                            <td>
-                                    <a href="https://global-vision.world">
-                                    </a>
+                              <a href="https://global-vision.world">   </a>
                            </tbody>
                            </td>
                         </tr>

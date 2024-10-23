@@ -41,43 +41,21 @@
                      <div class="italic-bold custom-top-margin-top">
 
                         <div class="custom-margin-bottom">
+                           <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" style="color:#15BB39;font-style:italic; padding: 11px 10px 11px 8px;background: #fff;width: 239px;" onmouseover="this.style.color='#15BB39';" onmouseout="this.style.color='#15BB39';" data-logname="MENU::hamburger-1-1" onclick="navigateToNewTabWithRootAndAnchorAttributes('UPLOAD-SOLUTION-PROVIDER-INFORMATION.php');">
+                              UPLOAD SOLUTION <br/> PROVIDER INFORMATION<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrow17BC3AActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></div>
+                           </div>
+                        </div>
+
+                        <div class="custom-margin-bottom">
                            <div class="search-container">
                                <input type="text" class="search-input" id="searchInput" placeholder="Search open project..." autocomplete="off">
                                <button class="voice-button" id="voiceButton"> 
                                    <img src="img/search.png" style="height:20px;" alt="">
                                </button>
-                           </div>
-                       
-                           <div class="custom-margin-bottom" id="projectContainer">
-                               
+                           </div>                           
+                            <!-- SOLUTION PROVIDER LIST -->
+                           <div class="custom-margin-bottom" id="projectContainer">                               
                               <div class="solution-providers-container"></div> 
-
-
-                              <!--                                
-                              <div class="no-border-3e9721-background-bubble whole-project">
-                                   <a class="project-header">Joachim Klatt</a>
-                                   <div class="project-position">Project Manager</div>
-                                   <div class="project-body">
-                                       Strong UN SDG believer. Consultant for Growth with meaningful Purpose (150+ countries).
-                                   </div> 
-                               </div>
-                       
-                               <div class="no-border-3e9721-background-bubble whole-project">
-                                   <a class="project-header">Peter Kerites</a>
-                                   <div class="project-position">Senior Software Engineer</div>
-                                   <div class="project-body">
-                                       Extensive software engineering experience in full-stack development.
-                                   </div> 
-                               </div>
-                       
-                               <div class="no-border-3e9721-background-bubble whole-project">
-                                   <a class="project-header">Mohammed Haider Ali</a>
-                                   <div class="project-position">Software Engineer</div>
-                                   <div class="project-body">
-                                       Full-Stack Developer with experience in various technologies like JavaScript, PHP, MySQL, etc.
-                                   </div> 
-                               </div> -->
-
                            </div>
                        </div>
                        

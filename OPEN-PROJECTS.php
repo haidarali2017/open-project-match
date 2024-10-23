@@ -39,6 +39,7 @@
                   <div class="no-border-white-background-bubble max-width-static-minimal bubble-5mm-padding">
                    
                      <div class="italic-bold custom-top-margin-top">
+                        
                          <div class="custom-margin-bottom">
                            <div class="gray-border-transparent-background-bubble bubble-padding italic-bold justify margin-top-bottom to-black-border-black-background" style="color:#15BB39;font-style:italic; padding: 11px 10px 11px 8px;background: #fff;height: 45px;width: 239px;" onmouseover="this.style.color='#15BB39';" onmouseout="this.style.color='#15BB39';" data-logname="MENU::hamburger-1-1" onclick="navigateToNewTabWithRootAndAnchorAttributes('UPLOAD-PROJECTS.php');">
                               UPLOAD PROJECT<img class="svg-right-navigator" src="https://global-vision.world/img/RightArrow17BC3AActiveBorderlessSVG.svg"><img class="svg-right-navigator" src="https://global-vision.world/img/RightArrowActiveBorderlessSVG.svg" alt="Right Arrow SVG"></div>
