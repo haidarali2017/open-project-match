@@ -2,36 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Google tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-241463402-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      /* gtag('config', 'UA-92780683-3'); 09.12.2020 */
-      gtag("config", "UA-241463402-1"); /* Sep or Oct 2022 */
-      gtag("config", "G-6WXP2GBP98"); /* 01.31.2023 */
-    </script>
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-5VJKFCC");
-    </script>
-    <!-- End Google Tag Manager -->
+   
 
     <title>Global Vision</title>
     <meta http-equiv="cache-control" content="no-cache" />
@@ -206,7 +177,7 @@
                     cursor: pointer;
                   }
                 </style>
-                <tr>
+                <tr class="initialDisplayNone">
                   <td>
                     <textarea
                       class="red"
@@ -225,7 +196,7 @@
                     ></textarea>
                   </td>
                 </tr>
-                <tr>
+                <tr class="initialDisplayNone">
                   <td>
                     <textarea
                       class="red"
@@ -245,7 +216,7 @@
                   </td>
                 </tr>
 
-                <tr>
+                <tr class="initialDisplayNone">
                   <td>
                     <textarea
                       class="green"
