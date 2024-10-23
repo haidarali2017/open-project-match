@@ -203,7 +203,32 @@
                     ></textarea>
                   </td>
                 </tr> 
+                <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+                <link
+                      rel="stylesheet"
+                      href="css/allcountrymobilecode.css"
+                    />
                 <tr>
+                  <td> 
+                  <div class="select-box">
+                      <div class="selected-option">
+                          <div>
+                              <span class="iconify" data-icon="flag:gb-4x3"></span>
+                              <strong></strong>
+                          </div>
+                          <input type="tel" name="mobile" id="mobile" placeholder="Mobile Number" style="border-radius: 1px 50px 50px 1px">
+                      </div>
+                      <div class="options">
+                          <input type="text" class="search-box" placeholder="Search Country Name" style=" height: 45px !important;margin-bottom:10px;">
+                          <ol>
+
+                          </ol>
+                      </div>
+                  </div>
+                  <script src="js/allcountrymobilecode.js"></script>
+                  </td>
+                </tr> 
+                <!-- <tr>
                  <td> 
  
                     <link
@@ -241,7 +266,7 @@
                   </script>
 
                  </td>                
-                </tr>
+                </tr> -->
                 <tr>
                   <td>
                       <table
